@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Github, Download, ArrowDown } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { ScrollAnimation, ElementReveal } from './ScrollAnimations'
+import LottieBackground from './LottieBackground'
 
 export default function HeroSection() {
   const [typedText, setTypedText] = useState('')
@@ -25,6 +26,7 @@ export default function HeroSection() {
 
   return (
     <div className="flex items-center justify-center relative overflow-hidden h-full">
+      <LottieBackground />
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
       <div className="absolute inset-0">

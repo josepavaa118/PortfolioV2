@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import LottieBackground from '@/components/LottieBackground'
 
 export const metadata: Metadata = {
   title: 'Portfolio V3',
@@ -14,7 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <LottieBackground />
+        <div style={{position: 'relative', zIndex: 1}}>
+          {children}
+        </div>
       </body>
     </html>
   )
