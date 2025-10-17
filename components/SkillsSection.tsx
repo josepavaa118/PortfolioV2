@@ -20,7 +20,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
     const timer = setTimeout(() => {
       skills.forEach((skill, index) => {
         setTimeout(() => {
-          setVisibleSkills(prev => new Set([...prev, skill._id]))
+          setVisibleSkills(prev => new Set([...Array.from(prev), skill._id]))
         }, index * 100)
       })
     }, 500)

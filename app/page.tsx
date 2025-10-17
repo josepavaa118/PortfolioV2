@@ -6,7 +6,6 @@ import AboutSection from '@/components/AboutSection'
 import SkillsSection from '@/components/SkillsSection'
 import EducationSection from '@/components/EducationSection'
 import ContactSection from '@/components/ContactSection'
-import { client } from '@/lib/sanity'
 
 // Mock data for development - replace with Sanity queries in production
 const mockData = {
@@ -58,18 +57,18 @@ const mockData = {
     },
   ],
   skills: [
-    { _id: '1', name: 'React', category: 'frontend' },
-    { _id: '2', name: 'JavaScript', category: 'frontend' },
-    { _id: '3', name: 'TypeScript', category: 'frontend' },
-    { _id: '4', name: 'Next.js', category: 'frontend' },
-    { _id: '5', name: 'Astro', category: 'frontend' },
-    { _id: '6', name: 'MySQL', category: 'backend' },
-    { _id: '7', name: 'Git', category: 'tools' },
-    { _id: '8', name: 'Tailwind', category: 'frontend' },
-    { _id: '9', name: 'HTML', category: 'frontend' },
-    { _id: '10', name: 'CSS', category: 'frontend' },
-    { _id: '11', name: 'Figma', category: 'design' },
-    { _id: '12', name: 'Agile', category: 'tools' },
+    { _id: '1', name: 'React', category: 'frontend' as const },
+    { _id: '2', name: 'JavaScript', category: 'frontend' as const },
+    { _id: '3', name: 'TypeScript', category: 'frontend' as const },
+    { _id: '4', name: 'Next.js', category: 'frontend' as const },
+    { _id: '5', name: 'Astro', category: 'frontend' as const },
+    { _id: '6', name: 'MySQL', category: 'backend' as const },
+    { _id: '7', name: 'Git', category: 'tools' as const },
+    { _id: '8', name: 'Tailwind', category: 'frontend' as const },
+    { _id: '9', name: 'HTML', category: 'frontend' as const },
+    { _id: '10', name: 'CSS', category: 'frontend' as const },
+    { _id: '11', name: 'Figma', category: 'design' as const },
+    { _id: '12', name: 'Agile', category: 'tools' as const },
   ],
   education: [
     {
