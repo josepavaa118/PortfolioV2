@@ -6,6 +6,7 @@ import AboutSection from '@/components/AboutSection'
 import SkillsSection from '@/components/SkillsSection'
 import EducationSection from '@/components/EducationSection'
 import ContactSection from '@/components/ContactSection'
+import LottieTabMenu from '@/components/LottieTabMenu'
 
 // Mock data for development - replace with Sanity queries in production
 const mockData = {
@@ -94,31 +95,35 @@ export default function Home() {
   const sections = ['Inicio', 'Proyectos', 'Sobre mí', 'Skills', 'Educación', 'Contacto']
 
   return (
-    <SimpleScrollContainer sections={sections}>
-      <Section id="home">
-        <HeroSection />
-      </Section>
+    <>
+      <SimpleScrollContainer sections={sections}>
+        <Section id="home">
+          <HeroSection />
+        </Section>
+        
+        <Section id="projects">
+          <ProjectsSection projects={mockData.projects} />
+        </Section>
+        
+        <Section id="about">
+          <AboutSection profile={mockData.profile} />
+        </Section>
+        
+        <Section id="skills">
+          <SkillsSection skills={mockData.skills} />
+        </Section>
+        
+        <Section id="education">
+          <EducationSection education={mockData.education} />
+        </Section>
+        
+        <Section id="contact">
+          <ContactSection profile={mockData.profile} />
+        </Section>
+      </SimpleScrollContainer>
       
-      <Section id="projects">
-        <ProjectsSection projects={mockData.projects} />
-      </Section>
-      
-      <Section id="about">
-        <AboutSection profile={mockData.profile} />
-      </Section>
-      
-      <Section id="skills">
-        <SkillsSection skills={mockData.skills} />
-      </Section>
-      
-      <Section id="education">
-        <EducationSection education={mockData.education} />
-      </Section>
-      
-      <Section id="contact">
-        <ContactSection profile={mockData.profile} />
-      </Section>
-    </SimpleScrollContainer>
+      <LottieTabMenu />
+    </>
   )
 }
 
