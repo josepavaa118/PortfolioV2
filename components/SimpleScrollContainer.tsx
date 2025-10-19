@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Home, FolderOpen, User, Code, GraduationCap, Mail } from "lucide-react"
 
 interface SimpleScrollContainerProps {
   children: React.ReactNode
@@ -72,46 +73,49 @@ export default function SimpleScrollContainer({ children, sections }: SimpleScro
         />
       </div>
 
-      {/* Section Indicator */}
-      <div className="fixed left-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="flex flex-col items-center space-y-4">
-          {/* Current Section Number */}
-          <div className="w-12 h-12 bg-black/80 backdrop-blur-sm border border-gray-800 rounded-full flex items-center justify-center">
-            <span className="text-accent font-mono font-bold text-lg">
-              {String(currentSection + 1).padStart(2, '0')}
-            </span>
-          </div>
-
-          {/* Section Dots */}
-          <div className="flex flex-col space-y-3">
-            {sections.map((section, index) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(index)}
-                className="relative group"
-              >
-                {/* Tooltip */}
-                <div className="absolute left-8 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                  <div className="bg-black/80 backdrop-blur-sm text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+      {/* Left Side Navigation Menu */}
+      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
+        <div className="bg-slate-800/90 backdrop-blur-md border border-blue-400/30 rounded-xl px-2 py-3">
+          <div className="flex flex-col items-center space-y-2">
+            {sections.map((section, index) => {
+              const icons = [Home, FolderOpen, User, Code, GraduationCap, Mail];
+              const Icon = icons[index];
+              const isActive = index === currentSection;
+              
+              return (
+                <div key={section} className="relative group">
+                  <motion.button
+                    className={`relative flex items-center justify-center p-2 rounded-lg transition-all duration-300 ${
+                      isActive ? "bg-blue-500/20" : "hover:bg-slate-700/50"
+                    }`}
+                    onClick={() => scrollToSection(index)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {isActive && (
+                      <motion.div
+                        className="absolute inset-0 bg-blue-400 rounded-lg"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 0.2, scale: 1 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                    )}
+                    
+                    <Icon 
+                      size={16} 
+                      className={`relative z-10 transition-colors duration-300 ${
+                        isActive ? "text-blue-400" : "text-white/70"
+                      }`} 
+                    />
+                  </motion.button>
+                  
+                  {/* Tooltip */}
+                  <div className="absolute left-full ml-2 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-black/90 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                     {section}
                   </div>
                 </div>
-
-                {/* Dot */}
-                <div className="w-3 h-3 rounded-full border-2 transition-all duration-200"
-                  style={{
-                    backgroundColor: index === currentSection ? '#00ff88' : 'transparent',
-                    borderColor: index === currentSection ? '#00ff88' : 'rgba(255, 255, 255, 0.3)',
-                    boxShadow: index === currentSection ? '0 0 10px rgba(0, 255, 136, 0.5)' : 'none'
-                  }}
-                />
-              </button>
-            ))}
-          </div>
-
-          {/* Total Sections */}
-          <div className="text-xs text-gray-500 font-mono">
-            {String(sections.length).padStart(2, '0')}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -95,35 +95,31 @@ export default function Home() {
   const sections = ['Inicio', 'Proyectos', 'Sobre mí', 'Skills', 'Educación', 'Contacto']
 
   return (
-    <>
-      <SimpleScrollContainer sections={sections}>
-        <Section id="home">
-          <HeroSection />
-        </Section>
-        
-        <Section id="projects">
-          <ProjectsSection projects={mockData.projects} />
-        </Section>
-        
-        <Section id="about">
-          <AboutSection profile={mockData.profile} />
-        </Section>
-        
-        <Section id="skills">
-          <SkillsSection skills={mockData.skills} />
-        </Section>
-        
-        <Section id="education">
-          <EducationSection education={mockData.education} />
-        </Section>
-        
-        <Section id="contact">
-          <ContactSection profile={mockData.profile} />
-        </Section>
-      </SimpleScrollContainer>
+    <SimpleScrollContainer sections={sections}>
+      <Section id="home">
+        <HeroSection />
+      </Section>
       
-      <LottieTabMenu />
-    </>
+      <Section id="projects">
+        <ProjectsSection projects={mockData.projects} />
+      </Section>
+      
+      <Section id="about">
+        <AboutSection profile={mockData.profile} />
+      </Section>
+      
+      <Section id="skills">
+        <SkillsSection skills={mockData.skills} />
+      </Section>
+      
+      <Section id="education">
+        <EducationSection education={mockData.education} />
+      </Section>
+      
+      <Section id="contact">
+        <ContactSection profile={mockData.profile} />
+      </Section>
+    </SimpleScrollContainer>
   )
 }
 
