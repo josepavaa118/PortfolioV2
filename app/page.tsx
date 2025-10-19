@@ -6,6 +6,7 @@ import AboutSection from '@/components/AboutSection'
 import SkillsSection from '@/components/SkillsSection'
 import EducationSection from '@/components/EducationSection'
 import ContactSection from '@/components/ContactSection'
+import LottieTabMenu from '@/components/LottieTabMenu'
 
 // Mock data for development - replace with Sanity queries in production
 const mockData = {
