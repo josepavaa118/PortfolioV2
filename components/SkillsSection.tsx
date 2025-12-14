@@ -44,8 +44,8 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
   }, {} as Record<string, Skill[]>)
 
   return (
-    <div className="py-20 bg-gray-900/50 h-full flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-8 sm:py-12 md:py-16 lg:py-20 w-full pb-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,36 +53,17 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="mobile-heading-responsive font-bold mb-4 sm:mb-6">
             Tecnologías
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="mobile-text-responsive text-gray-400 max-w-3xl mx-auto px-4">
             Me especializo en crear interfaces web modernas y pensadas para el usuario. 
             Cuido los detalles, combinando diseño, rendimiento y buenas prácticas.
           </p>
         </motion.div>
 
-        {/* Terminal Command */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-12"
-        >
-          <div className="code-block max-w-md mx-auto">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-green-400">$</span>
-              <span className="text-white">skills --list</span>
-            </div>
-            <div className="text-sm text-gray-300">
-              Cargando habilidades...
-            </div>
-          </div>
-        </motion.div>
-
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
             <motion.div
               key={category}
@@ -90,13 +71,13 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              className="bg-gray-900/50 border border-gray-800 rounded-lg p-6"
+              className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 sm:p-6"
             >
-              <h3 className="text-lg font-semibold mb-6 text-center">
+              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-center">
                 {skillCategories[category as keyof typeof skillCategories]}
               </h3>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {categorySkills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill._id}
@@ -118,10 +99,10 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                         duration: 0.3, 
                         delay: categoryIndex * 0.2 + skillIndex * 0.1 + 0.5 
                       }}
-                      className="w-5 h-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0"
+                      className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0"
                     >
                       <svg 
-                        className="w-3 h-3 text-black" 
+                        className="w-2 h-2 sm:w-3 sm:h-3 text-black" 
                         fill="currentColor" 
                         viewBox="0 0 20 20"
                       >
@@ -132,7 +113,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                         />
                       </svg>
                     </motion.div>
-                    <span className="text-gray-300">{skill.name}</span>
+                    <span className="text-gray-300 text-sm sm:text-base">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>
@@ -146,11 +127,11 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center"
         >
-          <h3 className="text-xl font-semibold mb-8">Y muchas más...</h3>
+          <h3 className="text-lg sm:text-xl font-semibold mb-6 sm:mb-8">Y muchas más...</h3>
           
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
             {['Agile', 'Git', 'Figma', 'Photoshop', 'Illustrator', 'Vercel', 'Netlify'].map((skill, index) => (
               <motion.div
                 key={skill}
@@ -158,7 +139,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-full text-gray-300 hover:border-gray-500 hover:text-white transition-colors duration-200"
+                className="px-3 py-1 sm:px-4 sm:py-2 bg-gray-800 border border-gray-700 rounded-full text-gray-300 hover:border-gray-500 hover:text-white transition-colors duration-200 text-xs sm:text-sm"
               >
                 {skill}
               </motion.div>

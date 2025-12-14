@@ -6,7 +6,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
   
   body {
@@ -14,6 +14,23 @@
     background-color: #0a0a0a;
     color: #ffffff;
     overflow-x: hidden;
+  }
+  
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    html {
+      scroll-snap-type: none; /* Disable snap on mobile for better UX */
+    }
+    
+    body {
+      font-size: 14px; /* Slightly smaller base font for mobile */
+    }
+  }
+
+  @media (min-width: 640px) {
+    body {
+      min-height: calc(100vh * 6);
+    }
   }
 }
 
@@ -40,6 +57,23 @@
   
   .project-card {
     @apply bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-gray-600 transition-colors duration-200;
+  }
+  
+  /* Mobile-specific utilities */
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 z-50 bg-slate-800/95 backdrop-blur-md border-t border-blue-400/30;
+  }
+  
+  .mobile-section {
+    @apply min-h-screen py-8 sm:py-12 md:py-16 lg:py-20;
+  }
+  
+  .mobile-text-responsive {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+  
+  .mobile-heading-responsive {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }
 }
 
@@ -69,6 +103,15 @@
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+
+html, body {
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE 10+ */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
 }
 
 /* Typing animation */

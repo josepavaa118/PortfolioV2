@@ -25,18 +25,16 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <div className="flex items-center justify-center relative overflow-hidden h-full">
+    <div className="flex items-center justify-center relative overflow-hidden w-full py-8 sm:py-12">
       <LottieBackground />
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
-      </div>
+      {/* Remove the following overlay effect divs: */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div> */}
+      {/* <div className="absolute inset-0"> ... </div> */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center">
         <ScrollAnimation delay={0.2}>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8">
+          <h1 className="mobile-heading-responsive font-bold mb-6 sm:mb-8">
             <ElementReveal delay={0.5}>
               <span className="gradient-text">Portfolio V3</span>
             </ElementReveal>
@@ -47,7 +45,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="mobile-text-responsive text-gray-300 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed"
           >
             {typedText}
             <span className="animate-pulse">|</span>
@@ -57,23 +55,24 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-12"
           >
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary flex items-center gap-2"
+              className="btn-primary flex items-center gap-2 text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
             >
-              <Github size={20} />
-              Ver GitHub
+              <Github size={18} className="sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Ver GitHub</span>
+              <span className="sm:hidden">GitHub</span>
             </motion.a>
             
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary flex items-center gap-2"
+              className="btn-secondary flex items-center gap-2 text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
             >
               Conectar
             </motion.a>
@@ -82,10 +81,11 @@ export default function HeroSection() {
               href="/cv.pdf"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary flex items-center gap-2"
+              className="btn-secondary flex items-center gap-2 text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
             >
-              <Download size={20} />
-              Descargar CV
+              <Download size={18} className="sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Descargar CV</span>
+              <span className="sm:hidden">CV</span>
             </motion.a>
           </motion.div>
 
@@ -107,8 +107,8 @@ export default function HeroSection() {
           </motion.div>
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 opacity-20">
+      {/* Floating Elements - Hidden on mobile for better performance */}
+      <div className="absolute top-20 left-10 opacity-20 hidden sm:block">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -116,7 +116,7 @@ export default function HeroSection() {
         />
       </div>
       
-      <div className="absolute bottom-20 right-10 opacity-20">
+      <div className="absolute bottom-20 right-10 opacity-20 hidden sm:block">
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}

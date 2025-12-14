@@ -42,8 +42,8 @@ export default function ContactSection({ profile }: ContactSectionProps) {
   }
 
   return (
-    <div className="py-20 bg-gray-900/50 h-full flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-8 sm:py-12 md:py-16 lg:py-20 w-full pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,28 +51,28 @@ export default function ContactSection({ profile }: ContactSectionProps) {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="mobile-heading-responsive font-bold mb-4 sm:mb-6">
             Contacto
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="mobile-text-responsive text-gray-400 max-w-3xl mx-auto px-4">
             Escuchando ideas y solicitudes de colaboración...
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           {/* Terminal Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="code-block"
+            className="code-block p-4 sm:p-6"
           >
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-gray-400 text-sm ml-4">contact.sh</span>
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+              <span className="text-gray-400 text-xs sm:text-sm ml-2 sm:ml-4">contact.sh</span>
             </div>
 
             {submitted ? (
@@ -81,59 +81,59 @@ export default function ContactSection({ profile }: ContactSectionProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-8"
               >
-                <div className="text-green-400 text-lg mb-4">✅ Mensaje enviado exitosamente!</div>
-                <p className="text-gray-400">Gracias por contactarme. Te responderé pronto.</p>
+                <div className="text-green-400 text-base sm:text-lg mb-3 sm:mb-4">✅ Mensaje enviado exitosamente!</div>
+                <p className="text-gray-400 text-sm sm:text-base">Gracias por contactarme. Te responderé pronto.</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
                     <span className="text-green-400">$</span>
-                    <span className="text-white">echo "Nombre:"</span>
+                    <span className="text-white text-sm sm:text-base">echo "Nombre:"</span>
                   </div>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className="terminal-input w-full bg-transparent border-none outline-none text-white font-mono"
+                    className="terminal-input w-full bg-transparent border-none outline-none text-white font-mono text-sm sm:text-base"
                     placeholder="Tu nombre aquí..."
                     required
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
                     <span className="text-green-400">$</span>
-                    <span className="text-white">echo "Email:"</span>
+                    <span className="text-white text-sm sm:text-base">echo "Email:"</span>
                   </div>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    className="terminal-input w-full bg-transparent border-none outline-none text-white font-mono"
+                    className="terminal-input w-full bg-transparent border-none outline-none text-white font-mono text-sm sm:text-base"
                     placeholder="tu@email.com"
                     required
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
                     <span className="text-green-400">$</span>
-                    <span className="text-white">echo "Mensaje:"</span>
+                    <span className="text-white text-sm sm:text-base">echo "Mensaje:"</span>
                   </div>
                   <textarea
                     value={formData.message}
                     onChange={(e) => handleInputChange('message', e.target.value)}
-                    className="terminal-input w-full bg-transparent border-none outline-none text-white font-mono resize-none h-24"
+                    className="terminal-input w-full bg-transparent border-none outline-none text-white font-mono resize-none h-20 sm:h-24 text-sm sm:text-base"
                     placeholder="Cuéntame sobre tu proyecto..."
                     required
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
                     <span className="text-green-400">$</span>
-                    <span className="text-white">echo "Acciones disponibles:"</span>
+                    <span className="text-white text-sm sm:text-base">echo "Acciones disponibles:"</span>
                   </div>
                   
                   <motion.button
@@ -141,17 +141,19 @@ export default function ContactSection({ profile }: ContactSectionProps) {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="btn-primary flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-primary flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Enviando...
+                        <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span className="hidden sm:inline">Enviando...</span>
+                        <span className="sm:hidden">...</span>
                       </>
                     ) : (
                       <>
-                        <Send size={18} />
-                        Enviar
+                        <Send size={16} className="sm:w-4 sm:h-4" />
+                        <span className="hidden sm:inline">Enviar</span>
+                        <span className="sm:hidden">Enviar</span>
                       </>
                     )}
                   </motion.button>
@@ -169,14 +171,14 @@ export default function ContactSection({ profile }: ContactSectionProps) {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-xl font-semibold mb-6">Conectemos</h3>
-              <p className="text-gray-400 mb-8">
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Conectemos</h3>
+              <p className="text-gray-400 mb-6 sm:mb-8 text-sm sm:text-base">
                 ¿Tienes un proyecto en mente? Me encantaría escuchar sobre él. 
                 Siempre estoy abierto a nuevas oportunidades y colaboraciones interesantes.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {[
                 {
                   icon: Github,
@@ -205,14 +207,14 @@ export default function ContactSection({ profile }: ContactSectionProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors duration-200 group"
+                  className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors duration-200 group"
                 >
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-200">
-                    <contact.icon className="w-6 h-6 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-200">
+                    <contact.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">{contact.label}</h4>
-                    <p className="text-sm text-gray-400">{contact.description}</p>
+                    <h4 className="font-semibold text-sm sm:text-base">{contact.label}</h4>
+                    <p className="text-xs sm:text-sm text-gray-400">{contact.description}</p>
                   </div>
                 </motion.a>
               ))}
@@ -224,10 +226,10 @@ export default function ContactSection({ profile }: ContactSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-gray-900/50 border border-gray-800 rounded-lg p-6"
+              className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 sm:p-6"
             >
-              <h4 className="font-semibold mb-3">Tiempo de respuesta</h4>
-              <div className="space-y-2 text-sm">
+              <h4 className="font-semibold mb-3 text-sm sm:text-base">Tiempo de respuesta</h4>
+              <div className="space-y-2 text-xs sm:text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Email:</span>
                   <span className="text-accent">24-48 horas</span>
