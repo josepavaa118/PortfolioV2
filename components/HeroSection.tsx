@@ -25,7 +25,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <div className="flex items-center justify-center relative overflow-hidden w-full py-8 sm:py-12">
+    <div className="flex items-center justify-center relative overflow-hidden w-full py-4 sm:py-12 pb-20 sm:pb-12">
       <LottieBackground />
       {/* Background Effects */}
       {/* Remove the following overlay effect divs: */}
@@ -94,7 +94,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.8 }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center mb-4 sm:mb-0"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
