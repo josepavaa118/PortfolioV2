@@ -6,7 +6,6 @@ import AboutSection from '@/components/AboutSection'
 import SkillsSection from '@/components/SkillsSection'
 import EducationSection from '@/components/EducationSection'
 import ContactSection from '@/components/ContactSection'
-import LottieTabMenu from '@/components/LottieTabMenu'
 
 // Mock data for development - replace with Sanity queries in production
 const mockData = {
@@ -96,7 +95,7 @@ export default function Home() {
 
   return (
     <SimpleScrollContainer sections={sections}>
-      <Section id="home">
+      <Section id="home" className="items-center">
         <HeroSection />
       </Section>
       
@@ -112,11 +111,11 @@ export default function Home() {
         <SkillsSection skills={mockData.skills} />
       </Section>
       
-      <Section id="education">
+      <Section id="education" className="pt-16 pb-32">
         <EducationSection education={mockData.education} />
       </Section>
       
-      <Section id="contact">
+      <Section id="contact" className="pt-16 pb-32">
         <ContactSection profile={mockData.profile} />
       </Section>
     </SimpleScrollContainer>

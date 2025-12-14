@@ -46,8 +46,8 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
   }, [codeBlock])
 
   return (
-    <div className="py-20 h-full flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-8 sm:py-12 md:py-16 lg:py-20 w-full pb-16 px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,12 +55,12 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="mobile-heading-responsive font-bold mb-4 sm:mb-6">
             Sobre <span className="gradient-text">mí</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 gap-y-6 items-center">
           {/* Profile Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -68,16 +68,16 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-4">{profile.name}</h3>
-              <p className="text-xl text-gray-400 mb-6">{profile.title}</p>
-              <p className="text-gray-300 leading-relaxed">{profile.description}</p>
+            <div className="mb-6 sm:mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{profile.name}</h3>
+              <p className="text-lg sm:text-xl text-gray-400 mb-4 sm:mb-6">{profile.title}</p>
+              <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{profile.description}</p>
             </div>
 
             {/* Skills Preview */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold mb-4">Tecnologías principales:</h4>
-              <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-3 sm:space-y-4">
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Tecnologías principales:</h4>
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
                 {['JavaScript', 'React', 'Next.js', 'Tailwind', 'TypeScript', 'Node.js'].map((skill, index) => (
                   <motion.div
                     key={skill}
@@ -87,8 +87,8 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="flex items-center gap-2"
                   >
-                    <div className="w-2 h-2 bg-accent rounded-full"></div>
-                    <span className="text-gray-300">{skill}</span>
+                    <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-300 text-sm sm:text-base">{skill}</span>
                   </motion.div>
                 ))}
               </div>
@@ -103,15 +103,15 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="code-block">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-gray-400 text-sm ml-4">profile.js</span>
+            <div className="code-block p-4 sm:p-6">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+                <span className="text-gray-400 text-xs sm:text-sm ml-2 sm:ml-4">profile.js</span>
               </div>
               
-              <pre className="text-sm overflow-x-auto">
+              <pre className="text-xs sm:text-sm overflow-x-auto">
                 <code className="text-green-400">
                   {typedCode}
                   <span className="animate-pulse">|</span>
@@ -119,21 +119,21 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
               </pre>
             </div>
 
-            {/* Floating Elements */}
+            {/* Floating Elements - Hidden on mobile for better performance */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center"
+              className="absolute -top-4 -right-4 w-6 h-6 sm:w-8 sm:h-8 bg-primary/20 rounded-full flex items-center justify-center hidden sm:flex"
             >
-              <span className="text-primary text-sm">💻</span>
+              <span className="text-primary text-xs sm:text-sm">💻</span>
             </motion.div>
             
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-              className="absolute -bottom-4 -left-4 w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center"
+              className="absolute -bottom-4 -left-4 w-6 h-6 sm:w-8 sm:h-8 bg-secondary/20 rounded-full flex items-center justify-center hidden sm:flex"
             >
-              <span className="text-secondary text-sm">⚡</span>
+              <span className="text-secondary text-xs sm:text-sm">⚡</span>
             </motion.div>
           </motion.div>
         </div>
@@ -144,7 +144,7 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-12 sm:mt-20"
         >
           {[
             { label: 'Proyectos Completados', value: '15+' },
@@ -160,8 +160,8 @@ console.log("🚀 Ejecutando perfil:", ${profile.name.split(' ')[0]});`
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
+              <div className="text-2xl sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">{stat.value}</div>
+              <div className="text-gray-400 text-xs sm:text-sm">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
